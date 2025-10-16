@@ -69,8 +69,21 @@ A machine learning-powered insurance premium prediction API that helps determine
    ```
 
 4. **Run the application**
+
+   **Option A: Run both FastAPI and Streamlit together (Recommended)**
+   ```bash
+   python run_app.py
+   ```
+   This will start both the FastAPI backend and Streamlit frontend automatically.
+
+   **Option B: Run FastAPI only**
    ```bash
    uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+   ```
+
+   **Option C: Run Streamlit frontend only**
+   ```bash
+   streamlit run frontend.py
    ```
 
 ## 📡 API Endpoints
@@ -185,6 +198,8 @@ The API automatically calculates these features from your input:
 ```
 SmartInsure-AI/
 ├── app.py                 # FastAPI application
+├── frontend.py            # Streamlit frontend interface
+├── run_app.py             # Startup script for both services
 ├── requirements.txt       # Python dependencies
 ├── Dockerfile            # Docker configuration
 ├── config/
@@ -284,6 +299,28 @@ docker logs smartinsure
 # Stop container
 docker stop smartinsure
 ```
+
+## 🚀 Running the Application
+
+### Using run_app.py (Easiest Method)
+
+The `run_app.py` script provides the easiest way to run both services:
+
+```bash
+python run_app.py
+```
+
+**What this script does:**
+- ✅ Starts FastAPI backend on `http://127.0.0.1:8000`
+- ✅ Starts Streamlit frontend on `http://127.0.0.1:8501`
+- ✅ Automatically handles service initialization
+- ✅ Provides clear status messages and URLs
+- ✅ Graceful shutdown with Ctrl+C
+
+**Services will be available at:**
+- 🌐 **FastAPI Backend**: http://127.0.0.1:8000
+- 🎨 **Streamlit Frontend**: http://127.0.0.1:8501
+- 📚 **API Documentation**: http://127.0.0.1:8000/docs
 
 ## 📊 API Documentation
 
